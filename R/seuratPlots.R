@@ -12,20 +12,27 @@
 #   Install Package:           'Cmd + Shift + B'
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
+pacotes = c('tidyverse','dplyr','ggplot2','ggpubr','cowplot','gridExtra')
 
-seurat_barplot <- function(object,ident.use,features_list,ident.colors,
+# Run the following command to verify that the required packages are installed. If some package
+# is missing, it will be installed automatically
+package.check <- lapply(pacotes, FUN = function(x) {
+  if (!require(x, character.only = TRUE)) {
+    install.packages(x, dependencies = TRUE)
+  }
+})
+
+seurat_barplot <- function(object,ident.use,features_list,
+                           ident.colors = c(RColorBrewer::brewer.pal(9,'Set1'),RColorBrewer::brewer.pal(8,'Set2'),RColorBrewer::brewer.pal(12,'Set3'),RColorBrewer::brewer.pal(9,'Pastel1'),RColorBrewer::brewer.pal(8,'Pastel2')),
                            show_percentage_legend=T,
                            percentage_legend_size=2,path_to_save=getwd(),width=10, height=14, ncol=1,plot_name='Bar_plot_percentage_features'){
+
   Idents(object) <- object[[ident.use]]
   idents <- as.data.frame(Idents(object))
   colnames(idents) <- c(ident.use)
   idents$barcode <- row.names(idents)
   count_matrix <- as.data.frame(GetAssayData(object = object, slot = "counts")[paste(features_list,sep=''),])
-  library(ggpubr)
-  library(dplyr)
-  library(ggplot2)
-  library(cowplot)
-  library(gridExtra)
+
   data <- as.data.frame(t(count_matrix))
   data$barcode <- rownames(data)
   # print(names(data))
@@ -77,6 +84,6 @@ seurat_barplot <- function(object,ident.use,features_list,ident.colors,
   ggsave(paste(path_to_save,'/',plot_name,'.tiff',sep=''),plot =pp,width = width, height = height)
   print(pp)
   print(paste('save file in : ',path_to_save,'/',plot_name,' (.pdf,.png,.tiff)',sep=''))
-  
+
 }
 
