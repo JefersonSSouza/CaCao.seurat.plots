@@ -79,6 +79,7 @@ seurat_barplot <- function(object,ident.use,features_list,
     plot_list[[gene]] = dd
   }
   pp <- print(wrap_plots(plot_list)+plot_layout(heights=1, ncol=ncol, guides = 'collect', widths = 2))
+  pp <- pp + plot_layout(guides = "collect")
   ggsave(paste(path_to_save,'/',plot_name,'.png',sep=''),plot =pp,width = width, height = height)
   ggsave(paste(path_to_save,'/',plot_name,'.pdf',sep=''),plot =pp,width = width, height = height)
   ggsave(paste(path_to_save,'/',plot_name,'.tiff',sep=''),plot =pp,width = width, height = height)
