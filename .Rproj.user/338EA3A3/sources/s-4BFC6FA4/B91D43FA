@@ -1,0 +1,26 @@
+{
+    "id": "B91D43FA",
+    "path": "~/development/R apps/seuratPercentages/man/seuratPlots.Rd",
+    "project_path": "man/seuratPlots.Rd",
+    "type": "r_doc",
+    "hash": "175187843",
+    "contents": "",
+    "dirty": false,
+    "created": 1657629181075.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "10,14",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1657629299,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1657629299860,
+    "read_only": false,
+    "read_only_alternatives": []
+}
