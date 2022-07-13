@@ -21,7 +21,7 @@ seurat_barplot <- function(object,ident.use,features_list,
 packages <- c('tidyverse','dplyr','ggplot2','ggpubr','cowplot','gridExtra','RColorBrewer','patchwork')
 
 for(i in 1:length(packages)){
-  if(!require(pack, character.only = TRUE)){
+  if(!require(packages[i], character.only = TRUE)){
     install.packages(packages[i],dependencies = TRUE)
   }
 }
