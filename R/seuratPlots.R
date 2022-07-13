@@ -38,6 +38,7 @@ seurat_barplot <- function(object,ident.use,features_list,
   if(ident.colors==''){
     ident.colors<- c(RColorBrewer::brewer.pal(9,'Set1'),RColorBrewer::brewer.pal(8,'Set2'),RColorBrewer::brewer.pal(12,'Set3'),RColorBrewer::brewer.pal(9,'Pastel1'),RColorBrewer::brewer.pal(8,'Pastel2'))
   }
+  
   Idents(object) <- object[[ident.use]]
   idents <- as.data.frame(Idents(object))
   colnames(idents) <- c(ident.use)
