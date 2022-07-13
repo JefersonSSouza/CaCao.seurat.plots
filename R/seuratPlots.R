@@ -18,7 +18,7 @@
   # is missing, it will be installed automatically
   package.check <- lapply(pacotes, FUN = function(x) {
     if (!require(x, character.only = TRUE)) {
-      remotes::install_local(x, dependencies = TRUE)
+      install.packages(x )
     }
   })
 
