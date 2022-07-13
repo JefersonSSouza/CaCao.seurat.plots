@@ -7,6 +7,4 @@ seurat_barplot()
 \description{
 Visualize features percentage for idents
 }
-\examples{
-seurat_barplot()
-}
+

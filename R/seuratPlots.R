@@ -21,27 +21,22 @@
       install.packages(x ,repos='http://cran.us.r-project.org')
     }
   })
-
+  library('tidyverse')
+  library('dplyr')
+  library('ggplot2')
+  library('ggpubr')
+  library('cowplot')
+  library('gridExtra')
+  library('RColorBrewer')
 seurat_barplot <- function(object,ident.use,features_list,
                            ident.colors = '',
                            show_percentage_legend=T,
                            percentage_legend_size=2,path_to_save=getwd(),width=10, height=14, ncol=1,plot_name='Bar_plot_percentage_features'){
-package.check <- lapply(pacotes, FUN = function(x) {
-    if (!require(x, character.only = TRUE)) {
-      install.packages(x ,repos='http://cran.us.r-project.org')
-    }
-  })
 
-  require('tidyverse')
-  require('dplyr')
-  require('ggplot2')
-  require('ggpubr')
-  require('cowplot')
-  require('gridExtra')
-  require('RColorBrewer')
+
 
   if(ident.colors==''){
-    ident.colors<- c(RColorBrewer::brewer.pal(9,'Set1'),RColorBrewer::brewer.pal(8,'Set2'),RColorBrewer::brewer.pal(12,'Set3'),RColorBrewer::brewer.pal(9,'Pastel1'),RColorBrewer::brewer.pal(8,'Pastel2'))
+    ident.colors<- c(brewer.pal(9,'Set1'),brewer.pal(8,'Set2'),brewer.pal(12,'Set3'),brewer.pal(9,'Pastel1'),brewer.pal(8,'Pastel2'))
   }
 
   Idents(object) <- object[[ident.use]]
