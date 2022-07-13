@@ -35,7 +35,7 @@ seurat_barplot <- function(object,ident.use,features_list,
 
 
 
-  if(ident.colors==''){
+  if(unique(ident.colors=='')){
     ident.colors<- c(brewer.pal(9,'Set1'),brewer.pal(8,'Set2'),brewer.pal(12,'Set3'),brewer.pal(9,'Pastel1'),brewer.pal(8,'Pastel2'))
   }
 
