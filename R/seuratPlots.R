@@ -18,7 +18,7 @@ seurat_barplot <- function(object,ident.use,features_list,
                            ident.colors = '',
                            show_percentage_legend=T,
                            percentage_legend_size=2,path_to_save=getwd(),width=10, height=14, ncol=1,plot_name='Bar_plot_percentage_features'){
-packages <- c('tidyverse','dplyr','ggplot2','ggpubr','cowplot','gridExtra','RColorBrewer')
+packages <- c('tidyverse','dplyr','ggplot2','ggpubr','cowplot','gridExtra','RColorBrewer','patchwork')
 
 for(i in 1:length(packages)){
   if(!require(pack, character.only = TRUE)){
@@ -32,6 +32,7 @@ for(i in 1:length(packages)){
   require('cowplot')
   require('gridExtra')
   require('RColorBrewer')
+  require('patchwork')
 
   if(unique(ident.colors=='')){
     ident.colors<- c(brewer.pal(9,'Set1'),brewer.pal(8,'Set2'),brewer.pal(12,'Set3'),brewer.pal(9,'Pastel1'),brewer.pal(8,'Pastel2'))
