@@ -18,7 +18,7 @@
   # is missing, it will be installed automatically
   package.check <- lapply(pacotes, FUN = function(x) {
     if (!require(x, character.only = TRUE)) {
-      install.packages(x )
+      install.packages(x ,repos='http://cran.us.r-project.org')
     }
   })
 
